@@ -480,6 +480,27 @@
                 }
             }
         },
+        "/crewsAllData": {
+            "get": {
+                "summary": "Lista de Equipes e suas informações",
+                "description": "Essa rota á responsável por fazer a listagem de todas as equipes com informações sobre seus projetos e prêmios",
+                "tags": ["Crews"],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/CrewAllData"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/project": {
             "post": {
                 "summary": "Cadastro de Projeto",
@@ -822,6 +843,35 @@
                     },
                     "imageURL": {
                         "type": "string"
+                    }
+                }
+            },
+            "CrewAllData": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "about": {
+                        "type": "string"
+                    },
+                    "imageURL": {
+                        "type": "string"
+                    },
+                    "projects": {
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        }
+                    },
+                    "awards": {
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        }
                     }
                 }
             },
